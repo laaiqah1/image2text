@@ -1,7 +1,7 @@
 # image2text
 ---
 title: Image To Text App
-emoji: ⚡
+emoji: 📹
 colorFrom: green
 colorTo: pink
 sdk: streamlit
