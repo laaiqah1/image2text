@@ -1,0 +1,24 @@
+name: Sync to Hugging Face hub
+
+on:
+  push:
+    branches:
+      - main
+  # Optional: Allow triggering manually from GitHub Actions
+  workflow_dispatch:
+
+jobs:
+  sync-to-hub:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout the repository
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Fetch full history for accurate syncing
+
+      # Step 2: Push to Hugging Face Hub
+      - name: Push to hub
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}  # Hugging Face API token stored as a GitHub secret
+        run: |
+          git push https://${Laaiqah}:${HF_TOKEN}@huggingface.co/spaces/Laaiqah/image-to-text-app main
